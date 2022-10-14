@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var 문자 = '30';
+        var 숫자 = 30;
+
+        // 30+30 = 60
+        console.log(숫자+숫자);
+        //'30'+'30'='3030'
+        console.log(문자+문자);
+
+        //30 + '30' = '3030' ??? 이상하게 된다..
+        console.log(숫자+문자);
+
+        // 문자를 숫자로 이용하기위해 parseInt 라는 메서드 사용
+        console.log(숫자+parseInt(문자));
+    </script>
+</body>
+</html>

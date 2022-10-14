@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 나이를 정수로 입력받기
+        var 나이 = parseInt(prompt('나이가 어떻게 되세요?'));
+        // 오늘 날짜(ex 2022-10-14 형태로 가져온다)
+        var 오늘 = new Date();
+        // 오늘 날짜에서 년도만 사용해 출생년도를 구한다
+        var 출생년도 = 오늘.getFullYear() - 나이 + 1;
+        // 출력
+        alert(출생년도);
+    </script>
+</body>
+</html>
