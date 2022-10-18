@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 300px;
+            height: 600px;
+            border-radius: 4px;
+            border: 1px solid #232323;
+            margin: 0 auto;
+            padding: 16px 32px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>구구단</h1>
+        <div class="googoo-place">
+            
+        </div>
+    </div>
+    <script>
+        var googooPlace = document.querySelector('.googoo-place');
+        
+        // 구구단 7 단을 출력!
+
+        for(var i = 1 ; i <= 9 ; i ++) {
+            googooPlace.innerHTML += `7 x ${i} = ${7*i}<br>`
+        }
+
+
+        // 이렇게도 할수있다!
+        
+        // var 구구단 = ``;
+        
+        // for(var i = 1 ; i <= 9 ; i ++){
+        //     구구단 += `7 x ${i} = ${7*i}<br>`;
+        // }
+
+        // googooPlace.innerHTML = 구구단;
+        // console.log(구구단)
+    </script>
+    </body>
+</html>
