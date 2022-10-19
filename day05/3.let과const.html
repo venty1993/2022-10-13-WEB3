@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 변수를 만들때 var를 사용했다.
+        
+        /*
+        var는 예전에 쓰던 구식
+        현재는 let과 const를 사용한다.
+
+        왜 사용하는가?
+
+        1. 변수와 상수를 구분하기위해서
+            - 변수 : 변하는수, 상수: 변하지 않는 수 이다.
+            변하지 않는 값을 선언할때는 const를 이용한다.
+            ex) const 태어난년도 = 1993;
+            */
+        // 2. var는 너무 융퉁성있다.
+
+        이름 = '홍길동'
+        var 이름;
+        console.log(이름);
+
+        /*
+        위 예제에서는 아직 선언되지않은 '이름'이라는 변수에 접근하고있다.
+        일반적으로 작동이 안되어야 정상인 모양새이지만 var를 이용하면
+        위 모양대로 작성하더라도 문제없이 실행된다.
+
+        아직 선언되지 않는 변수에 접근이 가능하다는것은
+        내가 의도하지 않은 오류가 발생할 수도 있다는것.
+
+        그러면 위 모양이 왜 실행이 되냐?
+        '호이스팅'이라는 개념때문에 그렇다!
+        웹 브라우저가 js를 해석할때 var로 선언된 변수를 먼저 기억하는
+        특징이 있다.
+
+        그래서 
+
+        이름 = '홍길동'
+        var 이름;
+        console.log(이름);
+
+        이런 예제가 있다면 'var 이름;'을 먼저 해석한다.
+        그래서 실행되는 모양은
+
+        var 이름;
+        이름 = '홍길동'
+        console.log(이름);
+
+        위 순서대로 실행된다.
+
+        호이스팅때문에 var 이용시에는 중복선언도 허용된다.
+        */
+
+        var 홍길동 = 'hong1'
+        var 홍길동 = 'hong2'
+        var 홍길동 = 'hong3'
+        var 홍길동 = 'hong4'
+        var 홍길동 = 'hong5'
+        var 홍길동 = 'hong6'
+        var 홍길동 = 'hong7'
+
+        console.log(홍길동);
+
+        /*
+        변수 중복선언은 불가능해야 정상이지만, 위 예제에 호이스팅이 적용되면
+        
+        var 홍길동;
+
+        홍길동 = 'hong1'
+        홍길동 = 'hong2'
+        홍길동 = 'hong3'
+        홍길동 = 'hong4'
+        홍길동 = 'hong5'
+        홍길동 = 'hong6'
+        홍길동 = 'hong7'
+
+        처럼 작동한다..
+
+        
+        그래서 ES6문법에서는 변수는 let 상수는 const를 이용한다!
+        
+        이름 = '홍홍길동동';
+        let 이름;
+        
+        위와 같이 입력하면 실행되지 않는다.
+
+
+        let 이름 = '홍길동';
+        let 이름 = '동에번쩍';
+        
+        위와 같이 입력해도 실행되지 않는다.
+        */
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            color: blue;
+        }
+
+        div{
+            float: left;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>구구단이다!</h1>
+
+    <script>
+        var body = document.querySelector('body');
+        var content = ``;
+
+        for(var i=1;i<=9;i++){
+            content += `<div>`;
+            content += `<h2>${i}단</h2>`;
+            for(var j=1;j<=9;j++){
+                content += `<p>${i} x ${j} =${i*j}</p>`;
+            }
+            content += "</div>";
+        }
+
+        body.innerHTML += content;
+    </script>
+</body>
+</html>
