@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="면적구하기()">면적계산기</button>
+    <script>
+        /*
+        프롬프트로 방의 가로값과 세로값을 받아서
+        방의 면적을 구하는 계산기를 만들고,
+        면적과 평수를 알림창으로 알려주는 함수를 만들어주세요.
+
+        사각형 면적 구하는 방법 -> 가로 * 세로 = 면적
+        1평 = 3.3제곱미터
+        100평 -> 330제곱미터
+        */
+        
+
+
+        function 면적구하기(){   
+
+            // const로 선언하는 이유
+            /*
+            이 함수가 실행되는동안 가로, 세로, 면적, 평은 바뀔 일이 없다.
+            때문에 상수선언인 const를 이용할 수 있으며
+            여러번 실행되는 함수에 변수나 상수를 선언할 수 있는 이유는
+            함수 내부에서 선언되는 변수나 상수는 지역변수 이기 때문에 함수가 실행될때마다
+            새로운 지역이 생성되는것과 같다.
+            지역변수는 자신의 지역 외 다른 영역에 영향을 줄수 없기때문에 아래와같은 선언이 가능하다.
+            */
+            const 가로 = parseInt(prompt(`가로는 몇cm인가요`));
+            const 세로 = parseInt(prompt(`세로는 몇cm인가요`));
+            // 가로(cm) / 100 = 가로(m)
+            const 면적 = 가로/100*세로/100;
+            const 평 = 면적/3.3058;
+            
+            alert(`면적은 ${면적}m², ${평}평입니다.`);
+        }
+
+    </script>
+</body>
+</html>

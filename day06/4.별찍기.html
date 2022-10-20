@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function 별() {
+            document.write("&nbsp*&nbsp");
+        }
+        function 공백() {
+            document.write(`&nbsp&nbsp&nbsp`);
+        }
+        function 줄바꿈() {
+            document.write(`<br>`);
+        }
+
+        //위 함수를 이용해 모양을 만드는 실습
+
+
+        // 5*5 사각형
+
+        // 별()
+        // 별()
+        // 별()
+        // 별()
+        // 별()
+        // 줄바꿈()
+
+        // 위에거 5번 반복
+
+        for(let j = 0 ; j < 5 ; j ++){
+            for(let i = 0 ; i < 5 ; i ++){
+                별();
+            }
+            줄바꿈();
+        }
+    </script>
+</body>
+</html>
