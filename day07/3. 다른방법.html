@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        ul {
+            display: flex;
+            gap: 24px;
+        }
+        li {
+            list-style: none;
+            border: 1px solid black;
+            width: 100px;
+            height: 24px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="font-size-button">14px</li>
+        <li class="font-size-button">20px</li>
+        <li class="font-size-button">32px</li>
+        <li class="font-size-button">50px</li>
+        <li class="font-size-button">30px</li>
+        <li class="font-size-button">11px</li>
+        <li class="font-size-button">10px</li>
+    </ul>
+    <p class="text-place">위 버튼을 누르면 글씨 크기가 바뀐다.</p>
+
+    <script>
+        const fontSizeButtons = document.getElementsByClassName('font-size-button');
+
+        for(let i = 0 ; i < fontSizeButtons.length ; i ++){
+            fontSizeButtons[i].onclick = changeFontSize;
+        }
+
+        function changeFontSize(){
+            const textPlace = document.querySelector('.text-place');
+            textPlace.style.fontSize = this.innerText;
+        }
+    </script>
+</body>
+</html>

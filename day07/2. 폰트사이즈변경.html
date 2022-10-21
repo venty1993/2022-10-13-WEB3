@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        ul {
+            display: flex;
+            gap: 24px;
+        }
+        li {
+            list-style: none;
+            border: 1px solid black;
+            width: 100px;
+            height: 24px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li onclick="changeFontSize(14)">14px</li>
+        <li onclick="changeFontSize(20)">20px</li>
+        <li onclick="changeFontSize(32)">32px</li>
+    </ul>
+    <p class="text-place">위 버튼을 누르면 글씨 크기가 바뀐다.</p>
+
+    <script>
+        function changeFontSize(글씨크기){
+            const textPlace = document.querySelector('.text-place');
+            textPlace.style.fontSize = `${글씨크기}px`;
+        }
+    </script>
+</body>
+</html>

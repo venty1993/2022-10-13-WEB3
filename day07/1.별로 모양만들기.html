@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 좌상단
+
+        for(let i = 0 ; i < 5 ; i ++) {
+            for(let j = 0 ; j < 5-i ; j ++){
+                별();
+            }
+            줄바꿈();
+        }
+        줄바꿈();
+        
+        // 좌하단
+        for(let i = 0 ; i < 5 ; i ++) {
+            for(let j = 0 ; j < i+1 ; j++ ){
+                별();
+            }
+            줄바꿈();
+        }
+        
+        줄바꿈();
+
+        // 우상단
+        for(let i = 0 ; i < 5 ; i++ ){
+            for(let j = 0 ; j < i ; j ++){
+                공백();
+            }
+
+            for(let j = 0 ; j < 5-i ; j++){
+                별();
+            }
+            줄바꿈();
+        }
+        줄바꿈();
+        // 우하단
+        for(let i = 0 ; i < 5; i ++) {
+            for(let j = 0 ; j < 5-i-1 ; j ++){
+                공백();
+            }
+
+            for(let j= 0 ; j < i+1 ; j ++) {
+                별();
+            }
+            줄바꿈()
+        }
+
+
+        for(let i = 0 ; i < 5 ; i ++) {
+            for(let j = 0 ; j < Math.abs(2-i) ; j ++){
+                공백();
+            }
+            for(let j = 0 ; j < 5-2*Math.abs(2-i) ; j ++){
+                별();
+            }
+            줄바꿈();
+        }
+
+
+
+
+        function 별() {
+            document.write("&nbsp*&nbsp");
+        }
+        function 공백() {
+            document.write(`&nbsp&nbsp&nbsp`);
+        }
+        function 줄바꿈() {
+            document.write(`<br>`);
+        }
+    </script>
+</body>
+</html>
