@@ -71,6 +71,8 @@
 
         let moveCheck = true;
         let index = 1;
+        // 인터벌 넣어줄 변수 선언
+        let nextInterval;
         moveSlide(0);
         // 이전버튼
         buttonWrapper.children[0].addEventListener('click', slideToLeft)
@@ -78,9 +80,17 @@
         buttonWrapper.children[1].addEventListener('click', sliderToRight)
 
 
+
+
         function moveSlide(time){
             slideWrapper.style.transform = `translateX(-${slideWidth * index}px)`;
             slideWrapper.style.transition = `${time}s`;
+            // 인터벌 삭제. (타이머 초기화)
+            clearInterval(nextInterval);
+            // 5초마다 반복하는 인터벌 재설정
+            nextInterval  = setInterval(() => {
+                sliderToRight();
+            }, 5000);
         }
 
         function slideToLeft() {

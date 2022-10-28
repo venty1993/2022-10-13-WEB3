@@ -36,6 +36,30 @@
             box-sizing: border-box;
             border: 1px solid #232323;
         }
+
+        .button-wrapper {
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-button-wrapper {
+            display: flex;
+            gap: 16px;
+        }
+
+        .page-button {
+            width: 16px;
+            height: 16px;
+            background-color: #aaa;
+            border-radius: 50%;
+        }
+
+        .active {
+            background-color: orange;
+        }
+
     </style>
 </head>
 <body>
@@ -49,19 +73,23 @@
         </ul>
     </div>
     <div class="button-wrapper">
-        <button>이전</button><button>다음</button>
+        <button>이전</button>
+        <div class="page-button-wrapper">
+            <!-- <div class="page-button active"></div>
+            <div class="page-button"></div>
+            <div class="page-button"></div> -->
+        </div>
+        <button>다음</button>
     </div>
 
     <script>
-        //슬라이드 이동이 첫번째나 마지막 슬라이드에서도 자연스럽게 이어지게
-        // 무한히 한방향으로 회전할수있는 캐러셀 제작방법
-        // html요소를 복사하고 붙여넣고, transition값 조절이 필요하다.
-
-
+        // 슬라이드 갯수에 맞게 버튼을 넣어 줍시다
 
         const slideWrapper = document.querySelector('.slide-wrapper');
         const buttonWrapper = document.querySelector('.button-wrapper');
         const slideWidth = 300;
+        const slideCount = slideWrapper.childElementCount;
+        const pageButtonWrapper = document.querySelector('.page-button-wrapper');
 
         const copyFirst = slideWrapper.firstElementChild.cloneNode(true);
         const copyLast = slideWrapper.lastElementChild.cloneNode(true);
@@ -69,18 +97,49 @@
         slideWrapper.appendChild(copyFirst);
         slideWrapper.insertBefore(copyLast,slideWrapper.firstElementChild);
 
+        makeButtons();
+
         let moveCheck = true;
         let index = 1;
+        // 인터벌 넣어줄 변수 선언
+        let nextInterval;
         moveSlide(0);
         // 이전버튼
-        buttonWrapper.children[0].addEventListener('click', slideToLeft)
+        buttonWrapper.firstElementChild.addEventListener('click', slideToLeft)
         // 다음버튼
-        buttonWrapper.children[1].addEventListener('click', sliderToRight)
+        buttonWrapper.lastElementChild.addEventListener('click', sliderToRight)
+
+
+
+        function makeButtons(){
+            for(let i = 0; i <slideCount; i++){
+                const pageButton = document.createElement(`div`);
+                pageButton.classList.add('page-button');
+                pageButtonWrapper.appendChild(pageButton);
+            }
+        }
+
 
 
         function moveSlide(time){
             slideWrapper.style.transform = `translateX(-${slideWidth * index}px)`;
             slideWrapper.style.transition = `${time}s`;
+            // 인터벌 삭제. (타이머 초기화)
+            clearInterval(nextInterval);
+            // 5초마다 반복하는 인터벌 재설정
+            nextInterval  = setInterval(() => {
+                sliderToRight();
+            }, 5000);
+            for(let i = 0 ; i < slideCount ; i ++ ){
+                pageButtonWrapper.children[i].classList.remove('active');
+            }
+            if(index===0) {
+                pageButtonWrapper.children[slideCount-1].classList.add('active')
+            }else if(index===slideCount+1){
+                pageButtonWrapper.children[0].classList.add('active')
+            }else {
+                pageButtonWrapper.children[index-1].classList.add('active')
+            }
         }
 
         function slideToLeft() {
