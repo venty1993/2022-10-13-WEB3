@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="place"></div>
+
+
+    지금까지 js로 html 요소를 만들려면
+    요소.innerHTML = <div>어쩌구저쩌구</div>
+    
+    위처럼 작성했다.
+
+    하지만 보안성이 취약할수 있기 때문에 정석은
+
+    1. div를 만든다.
+    2. div안에 텍스트 내용을 넣는다.
+    3. 요소에 자식으로 추가해준다.
+
+    <hr>
+
+    그럼 삭제는 어떻게 해야하는가?
+
+    appendChild와 반대로 removeChild도 있다.
+
+    사용 방법은
+     
+    부모.removeChilde(지울자식);
+
+    현재 예제에서 place 안의 div를 지워주고 싶다면
+
+    place.removeChild(makeDiv); 해주면 된다.
+
+    <button onclick="removeDiv()">버튼</button>
+    <script>
+        // 자바스크립트로 표현하자면?
+        const place = document.querySelector('.place');
+        const makeDiv = document.createElement('div');
+        const textNode = document.createTextNode('어쩌구저쩌구');
+
+        makeDiv.appendChild(textNode);
+        place.appendChild(makeDiv);
+
+        function removeDiv() {
+            place.removeChild(makeDiv);
+        }
+
+
+        
+        // place.innerHTML=`<div>어쩌구저쩌구</div>`
+        // 이것과 결과물은 같지만 여러 측면 고려했을때 위 방식으로 쓰는게 좋다.
+
+
+        
+
+    </script>
+</body>
+</html>
