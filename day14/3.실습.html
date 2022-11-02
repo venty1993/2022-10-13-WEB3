@@ -10,9 +10,9 @@
     <div class="input-text">
         <div class="input-header">
             <!-- input에 텍스트 입력 -->
-            <input type="text" name="" id="">
+            <input type="text" name="" id="input-place">
             <!-- 버튼 누르면 p태그 생성해서 -->
-            <button>생성</button>
+            <button onclick="addLine()">생성</button>
         </div>
         <div class="export-p">
             <!-- 이곳에 p태그가 들어간다 -->
@@ -20,6 +20,19 @@
     </div>
 
     <script>
+
+        const input = document.getElementById('input-place');
+        const exportP = document.querySelector('.export-p');
+
+
+        function addLine() {
+            const makeP = document.createElement('p');
+            const textNode = document.createTextNode(input.value);
+            makeP.appendChild(textNode);
+            exportP.appendChild(makeP);
+            input.value = '';
+        }
+
         /*
         input에다가 입력한 텍스트를 이용해서
         새로운 p태그를 만들어주는 버튼을 만들어주세요
