@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #aaa;
+            height: 5000px;
+            position: relative;
+        }
+
+        header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            transition: 0.5s;
+            position: fixed;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #hamberger {
+            font-size: 60px;
+        }
+        
+        .scrolled {
+            color: rgb(87, 151, 219);
+            background-color: #ffffff50;
+        }
+
+        .scroll-down {
+            transform: translateY(-100%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>대충로고</h1>
+        <div id="hamberger">=</div>
+    </header>
+    <script src="func.js"></script>
+</body>
+</html>

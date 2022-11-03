@@ -3,8 +3,16 @@ const createTask = document.getElementById('create-task');
 const inputText = document.getElementById('input-text')
 const taskComplate = document.getElementById('task-complate');
 
+window.addEventListener('keydown',(e)=>{
+    if(e.key === 'Enter' && document.activeElement === inputText) {
+        makeTask();
+    }
+})
 
-createTask.addEventListener('click',()=>{
+createTask.addEventListener('click',makeTask)
+
+
+function makeTask() {
     const task = document.createElement('div');
     task.classList.add('task');
 
@@ -26,6 +34,13 @@ createTask.addEventListener('click',()=>{
     const pInput = document.createElement('p');
     pInput.innerText = inputText.value;
 
+
+    const timeInput = document.createElement('span');
+    const today = new Date();
+    timeInput.classList.add('make-time')
+    timeInput.innerText = `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`
+
+
     const delButton = document.createElement('div');
     delButton.innerText = `삭제`;
     delButton.addEventListener('click', () => {
@@ -34,11 +49,10 @@ createTask.addEventListener('click',()=>{
     
     task.appendChild(chkInput);
     task.appendChild(pInput);
+    task.appendChild(timeInput);
     task.appendChild(delButton);
 
     taskList.appendChild(task);
 
     inputText.value = ''
-})
-
-
+}
